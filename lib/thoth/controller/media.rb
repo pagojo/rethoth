@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -25,6 +26,8 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #++
+
+require 'rack/utils'
 
 module Thoth
   class MediaController < Controller
@@ -106,8 +109,7 @@ module Thoth
       @sort     = :created_at unless @columns.include?(@sort)
       @sort_url = rs(:list, page)
 
-      @files = Media.paginate(page, 20).order(@order == :desc ? @sort.desc :
-          @sort)
+      @files = Media.order(@order == :desc ? Sequel.desc(@sort) : @sort).paginate(page, 20)
 
       @title = "Media (page #{page} of #{[@files.page_count, 1].max})"
       @pager = pager(@files, rs(:list, '__page__', :sort => @sort, :order => @order))

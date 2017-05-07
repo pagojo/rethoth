@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -62,9 +63,9 @@ module Thoth; module Helper
       cookie_token = Digest::SHA256.hexdigest(chaos)
 
       response.set_cookie(:thoth_token,
-          :path  => MainController.r().to_s,
+          :path  => '/',
           :value => cookie_token
-      )
+        )
 
       cookie_token
     end

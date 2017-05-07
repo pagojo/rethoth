@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2010 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -33,9 +34,8 @@ $:.uniq!
 
 require 'find'
 
-require 'rubygems'
-require 'rake/gempackagetask'
-require 'rake/rdoctask'
+require 'rubygems/package_task'
+require 'rdoc/task'
 require 'thoth/version'
 
 # Don't include resource forks in tarballs on Mac OS X.
@@ -48,7 +48,7 @@ thoth_gemspec = Gem::Specification.new do |s|
 
   s.name     = 'thoth'
   s.version  = Thoth::APP_VERSION
-  s.author   = Thoth::APP_AUTHOR
+  s.authors  = Thoth::APP_AUTHORS
   s.email    = Thoth::APP_EMAIL
   s.homepage = Thoth::APP_URL
   s.platform = Gem::Platform::RUBY
@@ -57,24 +57,26 @@ thoth_gemspec = Gem::Specification.new do |s|
   s.files        = FileList['{bin,lib}/**/*', 'LICENSE'].to_a
   s.executables  = ['thoth']
   s.require_path = 'lib'
+  
+  s.license = 'BSD-3-Clause'
 
-  s.required_ruby_version = '>= 1.9.1'
+  s.required_ruby_version = '>= 2.3.0'
 
   # Runtime dependencies.
-  s.add_dependency('ramaze',    '= 2010.06.18')
-  s.add_dependency('innate',    '= 2010.07')
-  s.add_dependency('builder',   '~> 3.0.0')
-  s.add_dependency('cssmin',    '~> 1.0.2')
-  s.add_dependency('erubis',    '~> 2.6.2')
-  s.add_dependency('json_pure', '~> 1.1.3')
-  s.add_dependency('jsmin',     '~> 1.0.1')
-  s.add_dependency('RedCloth',  '~> 4.2.1')
-  s.add_dependency('sanitize',  '~> 1.2.0')
-  s.add_dependency('sequel',    '~> 3.8')
+  s.add_dependency('ramaze',    '~> 2012.12', '>= 2012.12.08')
+  s.add_dependency('innate',    '~> 2015.10', '>= 2015.10.28')
+  s.add_dependency('builder',   '~> 3.2', '>= 3.2.2')
+  s.add_dependency('cssmin',    '~> 1.0', '>= 1.0.3')
+  s.add_dependency('erubis',    '~> 2.7', '>= 2.7.0')
+  s.add_dependency('json_pure', '~> 2.0', '>= 2.0.2')
+  s.add_dependency('jsmin',     '~> 1.0', '>= 1.0.1')
+  s.add_dependency('RedCloth',  '~> 4.3', '>= 4.3.2')
+  s.add_dependency('sanitize',  '~> 4.4', '>= 4.4.0')
+  s.add_dependency('sequel',    '~> 4.42', '>= 4.42.0')
 
   # Development dependencies.
-  s.add_development_dependency('bacon', '~> 1.1.0')
-  s.add_development_dependency('rake',  '~> 0.8.0')
+  s.add_development_dependency('bacon', '~> 1.2', '>=1.2.0')
+  s.add_development_dependency('rake',  '~> 11.2','>=11.2.2')
 
   s.post_install_message = <<POST_INSTALL
 ================================================================================
@@ -89,11 +91,11 @@ one or more of the following gems:
 POST_INSTALL
 end
 
-Rake::GemPackageTask.new(thoth_gemspec) do |p|
-  p.need_tar_gz = true
+Gem::PackageTask.new(thoth_gemspec) do |pkg|
+  pkg.need_tar_gz = true
 end
 
-Rake::RDocTask.new do |rd|
+RDoc::Task.new do |rd|
   rd.main     = 'Thoth'
   rd.title    = 'Thoth'
   rd.rdoc_dir = 'doc'

@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -32,6 +33,7 @@ module Thoth
 
     plugin :hook_class_methods
     plugin :validation_helpers
+    plugin :blacklist_security
 
     after_destroy do
       Page.normalize_positions

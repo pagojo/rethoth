@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -127,7 +128,7 @@ module Thoth
       @sort     = :created_at unless @columns.include?(@sort)
       @sort_url = rs(:list, page)
 
-      @comments = Comment.paginate(page, 20).order(@order == :desc ? @sort.desc : @sort)
+      @comments = Comment.order(@order == :desc ? Sequel.desc(@sort) : @sort).paginate(page, 20)
       @title    = "Comments (page #{page} of #{[@comments.page_count, 1].max})"
       @pager    = pager(@comments, rs(:list, '__page__', :sort => @sort, :order => @order))
     end

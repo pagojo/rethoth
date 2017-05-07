@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -33,14 +34,15 @@ module Thoth
     engine :Erubis
     layout :default
     map_layouts '/'
-
+    
     # Displays a custom 404 error when a nonexistent action is requested.
     def self.action_missing(path)
       return if path == '/error_404'
       try_resolve('/error_404')
     end
+
   end
 
-  Ramaze::acquire(File.join(LIB_DIR, 'controller', '*'))
-  Ramaze::acquire(File.join(LIB_DIR, 'controller', 'api', '*'))
+  Thoth.acquire(File.join(LIB_DIR, 'controller', '*'))
+  Thoth.acquire(File.join(LIB_DIR, 'controller', 'api', '*'))
 end

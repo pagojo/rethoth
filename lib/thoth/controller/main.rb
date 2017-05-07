@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -28,6 +29,8 @@
 
 module Thoth
   class MainController < Controller
+    map '/'
+    map_views '/thoth'
     helper :cache, :pagination
 
     cache_action(:method => :index, :ttl => 60) do
@@ -184,7 +187,7 @@ module Thoth
         redirect CommentController.r(), :status => 301
       end
     end
-
+    
     alias_method 'recent-comments', :comments
-  end
+    end
 end

@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2010 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -28,10 +29,9 @@
 
 module Thoth
   APP_NAME      = 'Thoth'
-  APP_VERSION   = '0.3.0.dev.20111019'
-  APP_AUTHOR    = 'Ryan Grove'
-  APP_EMAIL     = 'ryan@wonko.com'
-  APP_URL       = 'http://thothblog.org/'
-  APP_COPYRIGHT = 'Copyright (c) 2011 Ryan Grove <ryan@wonko.com>. All ' <<
-                  'rights reserved.'
+  APP_VERSION   = '0.4.0.dev.20170313'
+  APP_AUTHORS   = ['John Pagonis' ,'Ryan Grove']
+  APP_EMAIL     = 'john@pagonis.org'
+  APP_URL       = 'http://rethoth.io'
+  APP_COPYRIGHT = 'Copyright (c) 2009 - 2012 Ryan Grove <ryan@wonko.com>,  2017 John Pagonis <john@pagonis.org>. All rights reserved.'
 end

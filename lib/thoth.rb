@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -31,10 +32,6 @@ $:.unshift(File.dirname(File.expand_path(__FILE__)))
 $:.uniq!
 
 require 'fileutils'
-require 'rubygems'
-
-gem 'innate', '=2010.07'
-gem 'ramaze', '=2010.06.18'
 
 require 'builder'
 require 'cssmin'
@@ -59,6 +56,55 @@ module Thoth
 
   # Thoth Helper namespace.
   module Helper; end
+end
+
+module Thoth
+  # LIFTED from old Ramaze.acquire
+  # Require all .rb and .so files on the given globs, utilizes Dir::[].
+  #
+  # Examples:
+  #   # Given following directory structure:
+  #   # src/foo.rb
+  #   # src/bar.so
+  #   # src/foo.yaml
+  #   # src/foobar/baz.rb
+  #   # src/foobar/README
+  #
+  #   # requires all files in 'src':
+  #   Ramaze.acquire 'src/*'
+  #
+  #   # requires all files in 'src' recursive:
+  #   Ramaze.acquire 'src/**/*'
+  #
+  #   # require 'src/foo.rb' and 'src/bar.so' and 'src/foobar/baz.rb'
+  #   Ramaze.acquire 'src/*', 'src/foobar/*'
+  def self.acquire(*globs)
+    globs.flatten.each do |glob|
+      Dir[glob].each do |file|
+          require file if file =~ /\.(rb|so)$/
+          puts "#{file} loaded"
+        end
+     end
+   end
+   
+   
+   # Lifted from old Ramaze, which was also lifter by Rack::Directory
+   # Stolen from Ramaze
+   FILESIZE_FORMAT = [
+         ['%.1fT', 1 << 40],
+         ['%.1fG', 1 << 30],
+         ['%.1fM', 1 << 20],
+         ['%.1fK', 1 << 10],
+       ]
+       
+   def self.filesize_format(int)
+     FILESIZE_FORMAT.each do |format, size|
+       return format % (int.to_f / size) if int >= size
+     end
+
+     "#{int}B"
+  end
+  
 end
 
 require 'thoth/errors'
@@ -190,7 +236,7 @@ module Thoth
 
       # Load Thoth models.
       require File.join(LIB_DIR, 'helper/wiki')
-      Ramaze::acquire(File.join(LIB_DIR, 'model', '*'))
+      Thoth.acquire(File.join(LIB_DIR, 'model', '*'))
 
       # Load startup plugins.
       Config.plugins.each {|plugin| Plugin.load(plugin)}
@@ -218,6 +264,8 @@ module Thoth
         require 'logger'
         @db.logger = Logger.new(trait[:sql_log])
       end
+      
+      @db.extension(:pagination)
 
     rescue => e
       Ramaze::Log.error("Unable to connect to database: #{e}")
@@ -254,33 +302,33 @@ module Thoth
         :mode  => trait[:mode] == :production ? :live : :dev,
         :roots => [HOME_DIR, LIB_DIR]
       )
-
+      
       case trait[:mode]
       when :devel
-        Ramaze.middleware!(:dev) do |m|
-          m.use Rack::Lint
-          m.use Rack::CommonLogger, Ramaze::Log
-          m.use Rack::ShowExceptions
-          m.use Rack::ShowStatus
-          m.use Rack::RouteExceptions
-          m.use Rack::ConditionalGet
-          m.use Rack::ETag
-          m.use Rack::Head
-          m.use Ramaze::Reloader
-          m.use Thoth::Minify if Config.server['enable_minify']
-          m.run Ramaze::AppMap
+        Ramaze.middleware :dev do 
+          use Rack::Lint
+          use Rack::CommonLogger, Ramaze::Log
+          use Rack::ShowExceptions
+          use Rack::ShowStatus
+          use Rack::RouteExceptions
+          use Rack::ConditionalGet
+          use Rack::ETag
+          use Rack::Head
+          use Ramaze::Reloader
+          use Thoth::Minify if Config.server['enable_minify']
+          run Ramaze::AppMap
         end
 
       when :production
-        Ramaze.middleware!(:live) do |m|
-          m.use Rack::CommonLogger, Ramaze::Log
-          m.use Rack::RouteExceptions
-          m.use Rack::ShowStatus
-          m.use Rack::ConditionalGet
-          m.use Rack::ETag
-          m.use Rack::Head
-          m.use Thoth::Minify if Config.server['enable_minify']
-          m.run Ramaze::AppMap
+        Ramaze.middleware :live do 
+          use Rack::CommonLogger, Ramaze::Log
+          use Rack::RouteExceptions
+          use Rack::ShowStatus
+          use Rack::ConditionalGet
+          use Rack::ETag
+          use Rack::Head
+          use Thoth::Minify if Config.server['enable_minify']
+          run Ramaze::AppMap
         end
 
         # Ensure that exceptions result in an HTTP 500 response.
@@ -326,7 +374,7 @@ module Thoth
         STDOUT.reopen('/dev/null', 'a')
         STDERR.reopen(STDOUT)
 
-        run
+        run 
       end
     end
 

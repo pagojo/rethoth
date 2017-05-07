@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -124,8 +125,7 @@ module Thoth
       @sort     = :position unless @columns.include?(@sort)
       @sort_url = rs(:list, page)
 
-      @pages = Page.paginate(page, 20).order(@order == :desc ? @sort.desc :
-         @sort)
+      @pages = Page.order(@order == :desc ? Sequel.desc(@sort) : @sort).paginate(page, 20)
 
       @title        = "Pages (page #{page} of #{[@pages.page_count, 1].max})"
       @pager        = pager(@pages, rs(:list, '__page__', :sort => @sort, :order => @order))

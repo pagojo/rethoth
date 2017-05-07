@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -29,7 +30,7 @@
 module Thoth
 
   # Namespace for Thoth plugins. See
-  # http://wiki.github.com/rgrove/thoth/creating-plugins for more info on
+  # http://wiki.github.com/pagojo/rethoth/creating-plugins for more info on
   # creating and using plugins.
   module Plugin
     def self.const_missing(name)
@@ -37,8 +38,8 @@ module Thoth
       self.const_get(name)
     end
 
-    # Attempts to load the specified plugin, first from Thoth's
-    # <tt>/plugin</tt> directory, then as a gem.
+    # Attempts to load the specified plugin, first from the project's 
+    # <tt>/plugin</tt> directory, then from Thoth's and then as a gem.
     def self.load(name)
       plugin = "thoth_#{name.to_s.downcase.gsub(/^thoth_/, '')}"
       files  = Dir["{#{HOME_DIR}/plugin,#{LIB_DIR}/plugin," <<

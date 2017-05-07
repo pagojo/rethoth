@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -55,8 +56,8 @@ module Thoth
       if username == Config.admin['user'] && password == Config.admin['pass']
         # Set an auth cookie that expires in two weeks.
         response.set_cookie('thoth_auth', :expires => Time.now + 1209600,
-            :path => MainController.r().to_s, :value => auth_key)
-
+            :path => '/', :value => auth_key)
+        
         redirect_referrer
       end
 
@@ -66,7 +67,7 @@ module Thoth
 
     # Deletes the <em>thoth_auth</em> cookie and redirects to the home page.
     def logout
-      response.delete_cookie('thoth_auth', :path => MainController.r().to_s)
+      response.delete_cookie('thoth_auth', :path => '/')
       redirect(MainController.r())
     end
 

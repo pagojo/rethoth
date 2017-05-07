@@ -1,4 +1,5 @@
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -246,13 +247,13 @@ module Thoth
       @sort     = (request[:sort]  || :created_at).to_sym
       @sort     = :created_at unless @columns.include?(@sort)
       @sort_url = rs(:list, page)
-
+      
       @posts = Post.filter(:is_draft => false).paginate(page, 20).order(
-          @order == :desc ? @sort.desc : @sort)
+                @order == :desc ? Sequel.desc(@sort) : @sort)
 
       if page == 1
         @drafts = Post.filter(:is_draft => true).order(
-            @order == :desc ? @sort.desc : @sort)
+            @order == :desc ? Sequel.desc(@sort) : @sort)
       end
 
       @title = "Blog Posts (page #{page} of #{[@posts.page_count, 1].max})"

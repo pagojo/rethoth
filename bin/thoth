@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 #--
+# Copyright (c) 2017 John Pagonis <john@pagonis.org>
 # Copyright (c) 2009 Ryan Grove <ryan@wonko.com>
 # All rights reserved.
 #
@@ -28,11 +29,6 @@
 #++
 
 require 'optparse'
-require 'rubygems'
-
-gem 'innate', '=2010.07'
-gem 'ramaze', '=2010.06.18'
-
 require 'ramaze'
 
 module Thoth
