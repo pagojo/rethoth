@@ -1,6 +1,6 @@
-# Thoth 0.4.0-Dev (2017)
+# Thoth 0.4.0.Dev (2017)
 
-#### Thoth is an awesome blog engine  
+#### Thoth is a simple to understand, run and maintain Ruby blogging engine
 
 Thoth is written in [Ruby](https://www.ruby-lang.org) and is based on the [Ramaze web framework](http://ramaze.net/) and the [Sequel database toolkit](http://sequel.jeremyevans.net/). Thoth 0.4.0 is a modern port, to 2017, of the original Thoth created by @ryangrove.  
 
@@ -20,7 +20,7 @@ Then, point your browser to http://localhost:7000/admin and use 'thoth' as your 
 
 ## Why Thoth?
 #### Simple
-The purpose of Thoth is to be a simple to understand, run and maintain blogging platform.
+The purpose of Thoth is to be a simple to understand, run and maintain blogging engine
 
 See the Wiki 
 #### Fully featured
@@ -66,10 +66,10 @@ Thoth is also ideal for newcomers to Ruby who have experience with other web fra
 gem install thoth
 ```
 Thoth depends on:
-* Ruby 2.3.0
+* Ruby >= 2.3.0
 * Ramaze 2012.12.08
 * Innate 2015.10.28
-* Sequel 4.42.0
+* Sequel >=4.42.0
 * Rake 11.2.2
 
 You will also have to install a database driver such as sqlite3 or mysql2.
