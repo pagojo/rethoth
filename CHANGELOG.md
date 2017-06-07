@@ -7,8 +7,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
  * Released gem
- 
+  
 ### Changed
+
+### Fixed
+
+### Removed
+
+### Deprecated
+
+## [0.4.0.dev - 2017-06-07]
+### Added
+ * Tested with Ruby 2.4.0
+ * Tested with Sequel 4.46.0
+  
+### Changed
+ * Updated the documentation with minor edits
 
 ### Fixed
 
