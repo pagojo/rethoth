@@ -29,9 +29,9 @@
 
 module Thoth
   APP_NAME      = 'Thoth'
-  APP_VERSION   = '0.4.0.dev.20170313'
+  APP_VERSION   = '0.4.0'
   APP_AUTHORS   = ['John Pagonis' ,'Ryan Grove']
   APP_EMAIL     = 'john@pagonis.org'
-  APP_URL       = 'http://rethoth.io'
+  APP_URL       = 'https://github.com/pagojo/rethoth'
   APP_COPYRIGHT = 'Copyright (c) 2009 - 2012 Ryan Grove <ryan@wonko.com>,  2017 John Pagonis <john@pagonis.org>. All rights reserved.'
 end

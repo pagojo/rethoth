@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Deprecated
 
-## [0.4.0.dev - 2017-06-07]
+## [0.4.0 - 2017-06-07]
 ### Added
  * Tested with Ruby 2.4.0
  * Tested with Sequel 4.46.0
