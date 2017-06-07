@@ -1,4 +1,4 @@
-# Thoth 0.4.0.Dev (2017)
+# Thoth 0.4.0 (2017)
 
 #### Thoth is a simple to understand, run and maintain Ruby blogging engine
 
