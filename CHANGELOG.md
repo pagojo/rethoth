@@ -6,7 +6,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
- * Released gem
   
 ### Changed
 
@@ -16,7 +15,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Deprecated
 
-## [0.4.0 - 2017-06-07]
+## [0.4.1]
+### Added
+ * Released gem to Rubygems.org as Rethoth
+  
+### Changed
+* Upgraded dependencies to `rake-12.0.0` due to `Ruby 2.4`
+* Renamed the project to Rethoth due to Rubygems project name clashes
+* Renamed Thoth in documentation
+
+### Fixed
+
+### Removed
+
+### Deprecated
+
+## [0.4.0] - 2017-06-07
 ### Added
  * Tested with Ruby 2.4.0
  * Tested with Sequel 4.46.0

@@ -33,7 +33,6 @@ $:.unshift(File.join(File.dirname(__FILE__), 'lib'))
 $:.uniq!
 
 require 'find'
-
 require 'rubygems/package_task'
 require 'rdoc/task'
 require 'thoth/version'
@@ -44,16 +43,26 @@ ENV['COPYFILE_DISABLE'] = 'true'
 
 # Gemspec for Thoth
 thoth_gemspec = Gem::Specification.new do |s|
-  s.rubyforge_project = 'riposte'
-
-  s.name     = 'thoth'
+  s.name     = 'rethoth'
   s.version  = Thoth::APP_VERSION
   s.authors  = Thoth::APP_AUTHORS
   s.email    = Thoth::APP_EMAIL
   s.homepage = Thoth::APP_URL
   s.platform = Gem::Platform::RUBY
-  s.summary  = 'An awesome blog engine based on Ramaze and Sequel.'
+  s.summary  = 'A simple to understand, run and maintain Ruby blogging engine.'
+  s.description = <<-EOF
+    Rethoth is a simple to understand, run and maintain Ruby blogging engine
 
+    Rethoth is written in Ruby and is based on the Ramaze web framework and the Sequel database toolkit. 
+    Rethoth is a modern port, to 2017, of the original Thoth created by @ryangrove.
+    
+    Rethoth demonstrates how to easily build a useful MVC-style app in Ruby without having to deal directly with meta-programming and DSL magic.
+    
+    Rethoth is an example of how to build a web application in Ruby without the need to learn Rails and ActiveRecord.
+    
+    Rethoth is ideal for newcomers to Ruby who have experience with other web frameworks and want to quickly appreciate the language and become productive with it.
+  EOF
+  
   s.files        = FileList['{bin,lib}/**/*', 'LICENSE'].to_a
   s.executables  = ['thoth']
   s.require_path = 'lib'
@@ -76,21 +85,23 @@ thoth_gemspec = Gem::Specification.new do |s|
 
   # Development dependencies.
   s.add_development_dependency('bacon', '~> 1.2', '>=1.2.0')
-  s.add_development_dependency('rake',  '~> 11.2','>=11.2.2')
+  s.add_development_dependency('rake',  '~> 12.0','>=12.0.0')
 
   s.post_install_message = <<POST_INSTALL
 ================================================================================
-Thank you for installing Thoth. If you haven't already, you may need to install
+Thank you for installing Rethoth. If you haven't already, you may need to install
 one or more of the following gems:
 
-  mysql2       - If you want to use Thoth with a MySQL database
-  passenger    - If you want to run Thoth under Apache using Phusion Passenger
-  sqlite3-ruby - If you want to use Thoth with a SQLite database
-  thin         - If you want to run Thoth using Thin
+  sqlite3      - If you want to use Rethoth with a SQLite database
+  mysql2       - If you want to use Rethoth with a MySQL database
+  passenger    - If you want to run Rethoth under Apache using Phusion Passenger
+  thin         - If you want to run Rethoth using Thin
 ================================================================================
 POST_INSTALL
 end
 
+# This will create the Rake tasks :gem and :package
+# see https://github.com/rubygems/rubygems/blob/master/lib/rubygems/package_task.rb
 Gem::PackageTask.new(thoth_gemspec) do |pkg|
   pkg.need_tar_gz = true
 end
@@ -109,9 +120,9 @@ task :test do
   sh 'bacon -a'
 end
 
-desc "install Thoth"
+desc "install Rethoth"
 task :install => :gem do
-  sh "gem install pkg/thoth-#{Thoth::APP_VERSION}.gem"
+  sh "gem install pkg/rethoth-#{Thoth::APP_VERSION}.gem"
 end
 
 desc "remove end-of-line whitespace"

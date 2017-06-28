@@ -1,13 +1,13 @@
-# Thoth 0.4.0 (2017)
+# Rethoth 0.4.1 (2017)
 
-#### Thoth is a simple to understand, run and maintain Ruby blogging engine
+#### Rehoth is a simple to understand, run and maintain Ruby blogging engine
 
-Thoth is written in [Ruby](https://www.ruby-lang.org) and is based on the [Ramaze web framework](http://ramaze.net/) and the [Sequel database toolkit](http://sequel.jeremyevans.net/). Thoth 0.4.0 is a modern port, to 2017, of the original Thoth created by @ryangrove.  
+Rethoth (previously known as Thoth) is written in [Ruby](https://www.ruby-lang.org) and is based on the [Ramaze web framework](http://ramaze.net/) and the [Sequel database toolkit](http://sequel.jeremyevans.net/). Rethoth 0.4.1 is a modern port, to 2017, of the original Thoth created by @ryangrove.  
 
-## Try Thoth now!
-(once released) For a quick start:
+## Try Rethoth now!
+For a quick start:
 ```
-    gem install thoth
+    gem install rethoth
     gem install sqlite3
 	thoth create test_project
 	cd test_project
@@ -16,15 +16,15 @@ Thoth is written in [Ruby](https://www.ruby-lang.org) and is based on the [Ramaz
 ```
 Then, point your browser to http://localhost:7000/admin and use 'thoth' as your username and password.
 
-*For the time being* while we work on migrating maintainers. Please clone the repository and do ```rake install``` as opposed to  ```gem install```
+Note that the name of the executable is still `thoth`.
 
-## Why Thoth?
+## Why Rethoth?
 #### Simple
-The purpose of Thoth is to be a simple to understand, run and maintain blogging engine
+The purpose of Rethoth is to be a simple to understand, run and maintain blogging engine
 
 See the Wiki 
 #### Fully featured
-Thoth has the features you need to run a blog without the hassle:
+Rethoth has the features you need to run a blog without the hassle:
 ![pic](https://raw.githubusercontent.com/wiki/pagojo/rethoth/images/00_welcome.png)
 
 * [Textile](https://www.promptworks.com/textile) format support.
@@ -53,24 +53,24 @@ Thoth has the features you need to run a blog without the hassle:
 
 #### Educational  
 
-Thoth demonstrates how to easily build a useful MVC-style app in Ruby without having to deal directly with meta-programming and DSL magic. 
+Rethoth demonstrates how to easily build a useful MVC-style app in Ruby without having to deal directly with meta-programming and DSL magic. 
 
 ##### No Rails needed 
-Thoth is an example of how to build a web application in Ruby without the need to learn Rails and ActiveRecord. 
+Rethoth is an example of how to build a web application in Ruby without the need to learn Rails and ActiveRecord. 
 
 ##### Feels very familiar to non-Rubyists
-Thoth is also ideal for newcomers to Ruby who have experience with other web frameworks and want to quickly appreciate the language and become productive with it.
+Rethoth is also ideal for newcomers to Ruby who have experience with other web frameworks and want to quickly appreciate the language and become productive with it.
 
 ## Installation
 ``` 
-gem install thoth
+gem install rethoth
 ```
-Thoth depends on:
+Rethoth depends on:
 * Ruby >= 2.3.0
 * Ramaze 2012.12.08
 * Innate 2015.10.28
 * Sequel >=4.42.0
-* Rake 11.2.2
+* Rake 12.0.0
 
 You will also have to install a database driver such as sqlite3 or mysql2.
 e.g.,
@@ -78,15 +78,13 @@ e.g.,
 gem install sqlite3
 ```
 
-## Thoth for developers
+## Rethoth for developers
 ##### Building the gem
 ```
 rake install
 ```
 
-cleanup
-
-### Customizing Thoth
+### Customizing Rethoth
 See the [Wiki pages](https://github.com/pagojo/rethoth/wiki)
 
 ### API Reference
@@ -100,11 +98,13 @@ Describe and show how to run the tests with code examples.
 
 Thoth was resurrected, updated and brought to 2017 by John Pagonis (@pagojo). It was originally developed between 2008 and 2012 by Ryan Grove (@rgrove). Thank you Ryan! Steven Bedrick (@stevenbedrick) has also contributed.
 
+We had to rename the project to Rethoth due to project name clashes on the Rubygems site. 
+
 #### History
 This file was created by [John Pagonis](http://pagonis.org) (@pagojo).  
 You can read more about Thoth's 2008--2012 history [here](/HISTORY).
 
 ## License
-Thoth uses the ['BSD 3 Clause'](/LICENCE) licence.
+Rethoth uses the ['BSD 3 Clause'](/LICENCE) licence.
 
-Thoth uses icons from the gorgeous [Silk icon set by famfamfam](http://www.famfamfam.com/lab/icons/silk/), which is licensed under the [Creative Commons Attribution 2.5 license](http://creativecommons.org/licenses/by/2.5/).
+Rethoth uses icons from the gorgeous [Silk icon set by famfamfam](http://www.famfamfam.com/lab/icons/silk/), which is licensed under the [Creative Commons Attribution 2.5 license](http://creativecommons.org/licenses/by/2.5/).
