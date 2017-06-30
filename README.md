@@ -9,7 +9,7 @@ For a quick start:
 ```
     gem install rethoth
     gem install sqlite3
-	thoth create test_project
+	thoth --create test_project
 	cd test_project
 	thoth <--devel> migrate
 	thoth <--devel>
