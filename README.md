@@ -11,10 +11,17 @@ For a quick start:
     gem install sqlite3
 	thoth --create test_project
 	cd test_project
-	thoth <--devel> migrate
-	thoth <--devel>
+	thoth --migrate
+	thoth
 ```
 Then, point your browser to http://localhost:7000/admin and use 'thoth' as your username and password.
+
+If you want to run or migrate in development mode use the  ```--devel``` switch
+e.g.,
+```
+	thoth --devel --migrate
+	thoth --devel
+```
 
 Note that the name of the executable is still `thoth`.
 
