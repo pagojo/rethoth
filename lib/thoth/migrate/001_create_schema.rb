@@ -32,6 +32,19 @@ class CreateSchema < Sequel::Migration
   end
 
   def up
+    unless table_exists?(:posts)
+      create_table :posts do
+        primary_key :id
+
+        varchar  :title,         :null => false, :unique => true
+        varchar  :name,          :null => false, :unique => true
+        text     :body,          :null => false
+        text     :body_rendered, :null => false
+        datetime :created_at,    :null => false
+        datetime :updated_at,    :null => false
+      end
+    end
+
     unless table_exists?(:comments)
       create_table :comments do
         primary_key :id
@@ -63,19 +76,6 @@ class CreateSchema < Sequel::Migration
 
     unless table_exists?(:pages)
       create_table :pages do
-        primary_key :id
-
-        varchar  :title,         :null => false, :unique => true
-        varchar  :name,          :null => false, :unique => true
-        text     :body,          :null => false
-        text     :body_rendered, :null => false
-        datetime :created_at,    :null => false
-        datetime :updated_at,    :null => false
-      end
-    end
-
-    unless table_exists?(:posts)
-      create_table :posts do
         primary_key :id
 
         varchar  :title,         :null => false, :unique => true
