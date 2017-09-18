@@ -50,8 +50,8 @@ module Thoth
         'db' => "sqlite:///#{HOME_DIR}/db/live.db",
 
         'site' => {
-          'name' => "New Thoth Blog",
-          'desc' => "Thoth is awesome.",
+          'name' => "New Rethoth Blog",
+          'desc' => "Rethoth is awesome.",
           'url'  => "http://localhost:7000/",
 
           'core_js'  => [

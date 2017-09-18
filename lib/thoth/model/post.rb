@@ -249,9 +249,9 @@ module Thoth
 
   unless Post.count > 0
     Post.create(
-      :title => 'Welcome to your new Thoth blog',
+      :title => 'Welcome to your new Rethoth blog',
       :body  => %[
-        If you're reading this, you've successfully installed Thoth. Congratulations!
+        If you're reading this, you've successfully installed Rethoth. Congratulations!
 
         Once you've <a href="txmt://open/?url=file://#{Thoth.trait[:config_file]}">edited the config file</a> to your liking, you can <a href="/admin">login</a> and begin creating blog posts and pages. You can also delete this post to make way for your own glorious words.
 

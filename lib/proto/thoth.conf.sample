@@ -1,7 +1,7 @@
 #
-# thoth.conf - Thoth configuration file.
+# thoth.conf - Rethoth configuration file.
 #
-# Customize this file as desired. You must restart Thoth before configuration
+# Customise this file as desired. You must restart Rethoth before configuration
 # changes will take effect.
 #
 # This file is YAML, but you may also use Erubis expressions to insert variables
@@ -25,17 +25,17 @@ live:
   site:
     # Name of your blog. This will be displayed as the title of your blog's
     # index page and in your blog's feeds.
-    name: New Thoth Blog
+    name: New Rethoth Blog
 
     # A brief description or subtitle for your blog.
-    desc: Thoth is awesome.
+    desc: Rethoth is awesome.
 
-    # Base URL of your site. This is necessary in order for Thoth to know how
+    # Base URL of your site. This is necessary in order for Rethoth to know how
     # to construct links. Be sure to set this correctly or links may not work.
     url: http://localhost:7000/
 
-    # URLs of CSS files to load in addition to the default Thoth CSS. You can
-    # override Thoth's default styles by specifying your own CSS files here.
+    # URLs of CSS files to load in addition to the default Rethoth CSS. You can
+    # override Rethoth's default styles by specifying your own CSS files here.
     # These can be relative or absolute URLs.
     #
     # Example:
@@ -45,8 +45,8 @@ live:
     #
     css: []
 
-    # URLs of JS files to load in addition to the default Thoth JS. You can
-    # extend or override Thoth's JS or add functionality by specifying your own
+    # URLs of JS files to load in addition to the default Rethoth JS. You can
+    # extend or override Rethoth's JS or add functionality by specifying your own
     # JS files here. These can be relative or absolute URLs.
     #
     # Example:
@@ -98,13 +98,13 @@ live:
   admin:
     # Your name. This will be displayed in the copyright notice at the bottom of
     # the page, and will be used as the author name for your site's feeds.
-    name: John Doe
+    name: John Doe (in your thoth.config)
 
     # Your email address. If you leave this blank or comment it out, it won't be
     # displayed.
     email: ''
 
-    # Administrator username. This is the name you'll use to log into Thoth.
+    # Administrator username. This is the name you'll use to log into Rethoth.
     user: thoth
 
     # Administrator password. By default this is a random number, so you won't
@@ -115,7 +115,7 @@ live:
     # hash. Just fill this with some made-up nonsense.
     seed: 6d552ac197a862b82b85868d6c245feb
 
-  # Plugins that should be loaded when Thoth starts. Usually it's not
+  # Plugins that should be loaded when Rethoth starts. Usually it's not
   # necessary to load a plugin until the first time it's used, but some plugins
   # alter core functionality and thus must be loaded at start time.
   #
@@ -129,7 +129,7 @@ live:
 
   # Absolute path to a directory where uploaded media files (images, videos,
   # etc.) for your blog posts and pages should be stored. This directory needs
-  # to be readable and writeable by the user running the Thoth server.
+  # to be readable and writeable by the user running the Rethoth server.
   media: <%= Thoth::HOME_DIR %>/media
 
   # Server settings.
@@ -137,25 +137,25 @@ live:
     # Server adapter to use. This can be any adapter Ramaze supports.
     adapter: webrick
 
-    # IP address on which Thoth should listen for connections. Specify 0.0.0.0
-    # if you want Thoth to listen on all addresses.
+    # IP address on which Rethoth should listen for connections. Specify 0.0.0.0
+    # if you want Rethoth to listen on all addresses.
     address: 0.0.0.0
 
-    # Port on which the Thoth server should listen for connections.
+    # Port on which the Rethoth server should listen for connections.
     port: 7000
 
     # Whether or not to enable caching. Enabling caching will significantly
-    # improve Thoth's performance under heavy traffic.
+    # improve Rethoth's performance under heavy traffic.
     enable_cache: true
 
     # Whether or not to enable automatic, on the fly minification of your blog's
     # external CSS and JavaScript files. Enabling minification will reduce
     # page weight and is a great way to improve performance, but you'll need to
-    # restart Thoth in order for CSS and JS changes to take effect.
+    # restart Rethoth in order for CSS and JS changes to take effect.
     #
-    # Note: this setting will have no effect if you're running Thoth under
+    # Note: this setting will have no effect if you're running Rethoth under
     # Phusion Passenger or any other environment in which static file requests
-    # are handled by a frontend server without passing through Ramaze.
+    # are handled by a front-end server without passing through Ramaze.
     enable_minify: true
 
     # Filename to which errors should be logged when running in production mode,
@@ -165,7 +165,7 @@ live:
     # Memcache settings.
     memcache:
       # Whether or not to enable memcache. When enabled along with the
-      # server.enable_cache setting above, Thoth will use memcache for all cache
+      # server.enable_cache setting above, Rethoth will use memcache for all cache
       # operations instead of the default per-process Hash-based cache.
       #
       # This may be beneficial if you have a very high-traffic blog and

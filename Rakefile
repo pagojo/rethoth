@@ -51,7 +51,7 @@ thoth_gemspec = Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.summary  = 'A simple to understand, run and maintain Ruby blogging engine.'
   s.description = <<-EOF
-    Rethoth is a simple to understand, run and maintain Ruby blogging engine
+    Rethoth is a simple to understand, run and maintain Ruby blogging engine.
 
     Rethoth is written in Ruby and is based on the Ramaze web framework and the Sequel database toolkit. 
     Rethoth is a modern port, to 2017, of the original Thoth created by @ryangrove.
