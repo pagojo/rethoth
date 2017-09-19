@@ -6,10 +6,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-  
+
 ### Changed
 
 ### Fixed
+
+### Removed
+
+### Deprecated
+
+## [0.4.2]
+### Added
+* Now compatible with MySQL/MariaDB  
+
+### Changed
+
+### Fixed
+* Github issue #3
+* Rename Thoth to Rethoth in some boilerplate text
 
 ### Removed
 

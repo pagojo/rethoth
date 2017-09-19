@@ -28,7 +28,7 @@
 
 class CreateSchema < Sequel::Migration
   def down
-    drop_table :comments, :media, :pages, :posts, :tags, :tags_posts_map
+    drop_table :tags_posts_map, :comments, :media, :pages, :posts, :tags 
   end
 
   def up

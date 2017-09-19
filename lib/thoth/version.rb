@@ -29,7 +29,7 @@
 
 module Thoth
   APP_NAME      = 'Rethoth'
-  APP_VERSION   = '0.4.1'
+  APP_VERSION   = '0.4.2'
   APP_AUTHORS   = ['John Pagonis' ,'Ryan Grove']
   APP_EMAIL     = 'john@pagonis.org'
   APP_URL       = 'https://github.com/pagojo/rethoth'

@@ -1,11 +1,11 @@
-# Rethoth 0.4.1 (2017)
+# Rethoth 0.4.2 (2017)
 
 #### Rehoth is a simple to understand, run and maintain Ruby blogging engine
 
-Rethoth (previously known as Thoth) is written in [Ruby](https://www.ruby-lang.org) and is based on the [Ramaze web framework](http://ramaze.net/) and the [Sequel database toolkit](http://sequel.jeremyevans.net/). Rethoth 0.4.1 is a modern port, to 2017, of the original Thoth created by @ryangrove.  
+Rethoth (previously known as Thoth) is written in [Ruby](https://www.ruby-lang.org) and is based on the [Ramaze web framework](http://ramaze.net/) and the [Sequel database toolkit](http://sequel.jeremyevans.net/). Rethoth 0.4.x is a modern port, to 2017, of the original Thoth created by @ryangrove.  
 
 ## Try Rethoth now!
-For a quick start:
+For a quick start using SQLite3 as a database:
 ```
     gem install rethoth
     gem install sqlite3
