@@ -18,7 +18,7 @@ live:
   #   db: sqlite:////absolute/path/to/database.db
   #
   # Sample MySQL config:
-  #   db: mysql://user:pass@hostname/database
+  #   db: mysql2://user:pass@hostname/database
   db: sqlite:///<%= Thoth::HOME_DIR %>/db/live.db
 
   # General site settings.
