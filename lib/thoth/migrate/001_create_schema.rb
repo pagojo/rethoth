@@ -28,7 +28,7 @@
 
 class CreateSchema < Sequel::Migration
   def down
-    drop_table :tags_posts_map, :comments, :media, :pages, :posts, :tags 
+    drop_table :tags_posts_map, :comments, :media, :pages, :posts, :tags
   end
 
   def up
@@ -52,8 +52,8 @@ class CreateSchema < Sequel::Migration
         varchar  :author,        :null => false
         varchar  :author_url
         varchar  :title,         :null => false
-        text     :body,          :default => ''
-        text     :body_rendered, :default => ''
+        text     :body
+        text     :body_rendered
         varchar  :ip
         datetime :created_at,    :null => false
         datetime :updated_at,    :null => false
